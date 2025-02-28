@@ -1,9 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Online Store</h1>
+        <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
+        <select id="categoryFilter" onchange="filterByCategory()">
+            <option value="all">All Categories</option>
+        </select>
+        <select id="sortPrice" onchange="sortProducts()">
+            <option value="default">Sort by Price</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+        </select>
+        <button onclick="openCart()">🛒 Cart (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <main id="products-container"></main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal">
+        <div class="cart-content">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <h3>Total: $<span id="cart-total">0</span></h3>
+            <button onclick="checkout()">Checkout</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
